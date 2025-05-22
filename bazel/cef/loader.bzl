@@ -4,7 +4,7 @@
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load(":platform.bzl", "CEF_PLATFORM")
-load(":version.bzl", "CEF_DOWNLOAD_URL", "CEF_VERSION", "CEF_FILE_SHA256")
+load(":version.bzl", "CEF_DOWNLOAD_URL", "CEF_VERSION", "CEF_FILE_SHA1")
 
 def load_cef_repo(name = "cef",
                   version = CEF_VERSION,
@@ -17,7 +17,7 @@ def load_cef_repo(name = "cef",
 
     http_archive(
         name = name,
-        sha256 = CEF_FILE_SHA256[platform],
+        sha1 = CEF_FILE_SHA1[platform],
         strip_prefix = file_name,
         url = "{}{}.tar.bz2".format(url, file_name),
         repo_mapping = {"@cef": "@{}".format(name)}

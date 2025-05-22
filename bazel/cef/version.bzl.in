@@ -8,14 +8,14 @@ CEF_DOWNLOAD_URL = "${url}"
 
 CEF_VERSION = "${version}"
 
-# Map of supported platform to sha256 for binary distribution download.
-CEF_FILE_SHA256 = {
-    "windows32": "${windows32_sha256}",
-    "windows64": "${windows64_sha256}",
-    "windowsarm64": "${windowsarm64_sha256}",
-    "macosx64": "${macosx64_sha256}",
-    "macosarm64": "${macosarm64_sha256}",
-    "linux64": "${linux64_sha256}",
-    "linuxarm64": "${linuxarm64_sha256}",
-    "linuxarm": "${linuxarm_sha256}",
+# Map of supported platform to sha1 for binary distribution download.
+CEF_FILE_SHA1 = {
+    "windows32": "${windows32_sha1}",
+    "windows64": "${windows64_sha1}",
+    "windowsarm64": "${windowsarm64_sha1}",
+    "macosx64": "${macosx64_sha1}",
+    "macosarm64": "${macosarm64_sha1}",
+    "linux64": "${linux64_sha1}",
+    "linuxarm64": "${linuxarm64_sha1}",
+    "linuxarm": "${linuxarm_sha1}",
 }
