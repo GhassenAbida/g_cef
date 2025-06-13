@@ -25,7 +25,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 #
 
 # Specify the CEF distribution version.
-set(CEF_VERSION "135.0.17+gcbc1c5b+chromium-135.0.7049.52")
+set(CEF_VERSION "109.1.18+gf1c41e4+chromium-109.0.5414.120")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MT")  # Static CRT
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MT")      # Static CRT
 

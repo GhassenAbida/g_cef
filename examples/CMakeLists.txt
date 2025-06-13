@@ -120,7 +120,7 @@ endmacro()
 add_subdirectory(shared)
 
 # Example executable targets.
-add_subdirectory(message_router)
+# add_subdirectory(message_router)
 add_subdirectory(minimal)
-add_subdirectory(resource_manager)
-add_subdirectory(scheme_handler)
+# add_subdirectory(resource_manager)
+# add_subdirectory(scheme_handler)

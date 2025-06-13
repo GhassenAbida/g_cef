@@ -199,6 +199,10 @@ if(OS_WINDOWS)
   SET_EXAMPLE_EXECUTABLE_TARGET_PROPERTIES(${EXAMPLE_TARGET})
   add_dependencies(${EXAMPLE_TARGET} shared)
   target_link_libraries(${EXAMPLE_TARGET} shared)
+  target_link_options(${EXAMPLE_TARGET} PRIVATE
+    $<$<CONFIG:Release>:/SUBSYSTEM:WINDOWS,6.0>
+    $<$<CONFIG:Release>:/NODEFAULTLIB:onecore.lib;onecoreuap.lib>
+  ) 
   set_property(TARGET ${EXAMPLE_TARGET}
     PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>"
   )

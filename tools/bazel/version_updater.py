@@ -34,8 +34,8 @@ download URL.
 
 CEF binary distribution file names are expected to take the form
 "cef_binary_<version>_<platform>.tar.bz2". These files must exist for each
-supported platform at the download URL location. Sha256 hashes must also
-exist for each file at "<file_name>.sha256".
+supported platform at the download URL location. SHA1 hashes must also
+exist for each file at "<file_name>.sha1".
 """
 
 
@@ -75,10 +75,10 @@ def is_valid_version(version):
       or bool(re.compile(r'^' + _cef_version_dev_regex + r'$').match(version))
 
 
-def is_valid_sha256(sha256):
-  if sha256 is None:
+def is_valid_sha1(sha1):
+  if sha1 is None:
     return False
-  return bool(re.compile(r'^[0-9a-f]{64}$').match(sha256))
+  return bool(re.compile(r'^[0-9a-f]{40}$').match(sha1))
 
 
 def download_url(url):
@@ -124,13 +124,13 @@ variables = {
     'url': options.url,
 }
 
-print("Downloading sha256 values...")
+print("Downloading sha1 values...")
 for platform in CEF_PLATFORMS:
-  url = "%scef_binary_%s_%s.tar.bz2.sha256" % (options.url, version, platform)
-  sha256 = download_url(url)
-  if not is_valid_sha256(sha256):
-    exit_with_error('Missing or invalid sha256 from %s' % url)
-  variables["%s_sha256" % platform] = sha256
+  url = "%scef_binary_%s_%s.tar.bz2.sha1" % (options.url, version, platform)
+  sha1 = download_url(url)
+  if not is_valid_sha1(sha1):
+    exit_with_error('Missing or invalid sha1 from %s' % url)
+  variables["%s_sha1" % platform] = sha1
 
 changed = False
 output = bazel_substitute(read_file(in_file), variables, label=in_file)
